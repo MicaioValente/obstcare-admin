@@ -30,6 +30,11 @@ const App = (props: CustomAppProps) => {
       <QueryClientProvider client={queryClient}>
         <GlobalStyle />
         <AuthWrapper {...props} />
+
+
+
+
+        
       </QueryClientProvider>
     </>
   );
