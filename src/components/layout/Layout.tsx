@@ -31,23 +31,22 @@ const Layout = ({ selectedKey, children }: LayoutProps) => {
   };
 
   return (
-    <S.Component isCollapsed={collapsed}>
+    <S.Component >
       <LayoutContainer style={{ minHeight: '100vh' }}>
         <Sider
           collapsible
           collapsed={collapsed}
           onCollapse={onCollapse}
           breakpoint="lg"
-          collapsedWidth={isMobile ? 0 : 100}
+          collapsedWidth={isMobile ? 100 : 100}
           onBreakpoint={mobile => setIsMobile(mobile)}
           style={{ background: '#F1F1F1' }}
         >
-          <S.Avatar>
+          <S.Avatar isCollapsed={collapsed}>
             <Image src={avatar}
               width="39"
               height="39"
-              loading="lazy"
-              alt="about banner" />
+              alt="photo" />
             <p>Obstcare</p>
           </S.Avatar>
           <Menu style={{ background: '#F1F1F1' }} defaultSelectedKeys={[selectedKey]} mode="inline">
@@ -81,7 +80,7 @@ const Layout = ({ selectedKey, children }: LayoutProps) => {
           </Menu>
         </Sider>
         <LayoutContainer className="site-layout">
-          <Content style={{ margin: '0 16px' }}>{children}</Content>
+          <Content style={{ margin: '2rem' }}>{children}</Content>
         </LayoutContainer>
       </LayoutContainer>
     </S.Component>

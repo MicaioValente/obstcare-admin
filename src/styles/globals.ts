@@ -15,6 +15,7 @@ margin: 0;
 padding: 0;
 box-sizing: border-box;
 -webkit-font-smoothing: antialiased;
+font-family: 'Public Sans';
 }
 
 li { list-style: none; }

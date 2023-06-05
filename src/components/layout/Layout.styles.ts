@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-export const Component = styled.div<{ isCollapsed: boolean }>`
+export const Component = styled.div`
   .ant-layout-sider-children {
     margin: 1rem;
   }
@@ -15,13 +15,14 @@ export const Component = styled.div<{ isCollapsed: boolean }>`
 
   .ant-menu {
     background: none !important;
+    border-inline-end: none !important;
   }
 
   .ant-menu-item svg {
     font-size: 22px !important;
   }
 
-  .ant-menu-light.ant-menu-root.ant-menu-inline{
+  .ant-menu-light.ant-menu-root.ant-menu-inline {
     border-inline-end: none;
   }
 
@@ -29,26 +30,40 @@ export const Component = styled.div<{ isCollapsed: boolean }>`
     background: var(--active);
     color: #fff;
   }
+  .ant-layout-sider-trigger {
+    background: #f2f2f2;
+
+    svg {
+      fill: #000;
+    }
+  }
 
   span.ant-layout-sider-zero-width-trigger.ant-layout-sider-zero-width-trigger-left {
     top: 90px !important;
   }
-
-  ${({ isCollapsed }) =>
-    !isCollapsed &&
-    css`
-      aside.ant-layout-sider.ant-layout-sider-light.ant-layout-sider-below {
-        position: fixed !important;
-        height: 100vh !important;
-        width: 100vw !important;
-        min-width: 100% !important;
-        z-index: 1 !important;
-      }
-    `}
 `;
 
-export const Avatar = styled.div`
+export const Avatar = styled.div<{ isCollapsed: boolean }>`
   cursor: pointer;
   display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 10px;
+  padding-left: 2px;
   margin-bottom: 2rem;
+
+  p {
+    font-size: 18px;
+    line-height: 24px;
+  }
+
+  ${({ isCollapsed }) =>
+    isCollapsed &&
+    css`
+      justify-content: center;
+
+      p {
+        display: none;
+      }
+    `}
 `;

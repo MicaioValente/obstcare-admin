@@ -1,3 +1,6 @@
+// Models
+import { ModulesEnum } from 'models';
+
 // Modules
 import { ObstetrasScreen } from 'modules/home/screens/obstetras';
 
@@ -11,5 +14,7 @@ const ObstetrasPage = () => {
         </Layout>
     );
 };
+
+// ObstetrasPage.allowedModule = ModulesEnum.OBSTETRAS
 
 export default ObstetrasPage;
