@@ -3,6 +3,9 @@ import { createGlobalStyle } from 'styled-components';
 const Global = createGlobalStyle`
 
 :root {
+--fff:#fff;
+--active: #0832DE;
+--bgButton : #4340DA
 }
 
 *,

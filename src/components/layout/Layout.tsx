@@ -1,8 +1,11 @@
 // Next
+import Image from 'next/image';
 import { useRouter } from 'next/router';
 
 // React
 import { useState } from 'react';
+import { BsHouse } from 'react-icons/bs';
+import { FiUsers } from 'react-icons/fi';
 
 // Styles
 import * as S from './Layout.styles';
@@ -10,8 +13,12 @@ import * as S from './Layout.styles';
 // Models
 import { LayoutProps } from 'models';
 
+import avatar from "../../../public/images/avatar.png"
+
 // Antd
 import { Layout as LayoutContainer, Menu } from 'antd';
+
+const { Content, Sider } = LayoutContainer;
 
 const Layout = ({ selectedKey, children }: LayoutProps) => {
   const [collapsed, setCollapsed] = useState(false);
@@ -23,10 +30,8 @@ const Layout = ({ selectedKey, children }: LayoutProps) => {
     setCollapsed(collapse);
   };
 
-  const { Header, Content, Sider } = LayoutContainer;
-
   return (
-    <S.Component>
+    <S.Component isCollapsed={collapsed}>
       <LayoutContainer style={{ minHeight: '100vh' }}>
         <Sider
           collapsible
@@ -35,18 +40,27 @@ const Layout = ({ selectedKey, children }: LayoutProps) => {
           breakpoint="lg"
           collapsedWidth={isMobile ? 0 : 100}
           onBreakpoint={mobile => setIsMobile(mobile)}
-          theme="light"
+          style={{ background: '#F1F1F1' }}
         >
-          <Menu theme="light" defaultSelectedKeys={[selectedKey]} mode="inline">
+          <S.Avatar>
+            <Image src={avatar}
+              width="39"
+              height="39"
+              loading="lazy"
+              alt="about banner" />
+            <p>Obstcare</p>
+          </S.Avatar>
+          <Menu style={{ background: '#F1F1F1' }} defaultSelectedKeys={[selectedKey]} mode="inline">
             <Menu.Item
               key="1"
+              icon={<BsHouse />}
               onClick={() => {
                 router.push('/home');
               }}
             >
               Home
             </Menu.Item>
-            <Menu.SubMenu title="Users">
+            <Menu.SubMenu title="Users" icon={<FiUsers />}>
               <Menu.Item
                 key="2"
                 onClick={() => {
@@ -67,11 +81,7 @@ const Layout = ({ selectedKey, children }: LayoutProps) => {
           </Menu>
         </Sider>
         <LayoutContainer className="site-layout">
-          <Content style={{ margin: '0 16px' }}>
-            <div className="site-layout-background" style={{ margin: '18px 0', minHeight: 400, padding: '18px' }}>
-              {children}
-            </div>
-          </Content>
+          <Content style={{ margin: '0 16px' }}>{children}</Content>
         </LayoutContainer>
       </LayoutContainer>
     </S.Component>
