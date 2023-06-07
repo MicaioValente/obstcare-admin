@@ -1,11 +1,15 @@
-// React
-import * as React from 'react';
+// Components
+import ActivesChart from './Actives';
+import NewChart from './NewChart';
+import RatiosChart from './Ratios';
+import RetentionChart from './Retention';
 
-// Styles
-import * as S from './Charts.styles';
+type CompoundedComponent = & {
+  NewChart: typeof NewChart;
+  ActivesChart: typeof ActivesChart;
+  RatiosChart: typeof RatiosChart;
+  RetentionChart: typeof RetentionChart;
+};
 
-const Charts = () => {
-  return <S.Component />;
-}
-
-export default Charts;
+const CompoundedCharts: CompoundedComponent = Object.assign({ NewChart, ActivesChart, RatiosChart, RetentionChart });
+export default CompoundedCharts;

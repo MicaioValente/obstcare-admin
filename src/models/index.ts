@@ -16,6 +16,12 @@ export enum RolesEnum {
     ADMIN = 1,
 }
 
+export interface LineChartProps {
+    data: number[];
+    labels: string[];
+}
+
+
 export enum ModulesEnum {
     OBSTETRAS = "ObstetrasModule",
     GESTANTES = "GestantesModule"
