@@ -4,8 +4,19 @@ import * as React from 'react';
 // Styles
 import * as S from './Checkbox.styles';
 
-const Checkbox = () => {
-  return <S.Component />;
-}
+// Models
+import { ICheckboxProps } from './models';
+
+const Checkbox = ({ id, disabled, checked, onChange }: ICheckboxProps) => {
+  const handleOnChange = () => {
+    onChange(!checked);
+  };
+
+  return (
+    <S.Component>
+      <input id={id} type="checkbox" onChange={handleOnChange} disabled={disabled} checked={checked} />
+    </S.Component>
+  );
+};
 
 export default Checkbox;

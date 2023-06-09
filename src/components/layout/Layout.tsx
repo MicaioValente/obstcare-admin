@@ -80,7 +80,7 @@ const Layout = ({ selectedKey, children }: LayoutProps) => {
           </Menu>
         </Sider>
         <LayoutContainer className="site-layout">
-          <Content style={{ margin: '2rem' }}>{children}</Content>
+          <Content style={{ margin: '3rem 1rem' }}>{children}</Content>
         </LayoutContainer>
       </LayoutContainer>
     </S.Component>

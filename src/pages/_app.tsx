@@ -18,14 +18,14 @@ import { RolesEnum, ModulesEnum } from 'models';
 import { queryClient } from 'utils/querryClient';
 
 // Components
-import { AuthWrapper } from 'components/authWrapper';
+import { ComponentWrapper } from 'components/ComponentWrapper';
 
-import { store } from 'store'
-export interface CustomAppProps extends Omit<AppProps, 'Component'> {
-  Component: AppProps['Component'] & { allowedRoles?: RolesEnum[]; allowedModule?: ModulesEnum };
-  dehydratedState: unknown;
-}
 // Context
+import { store } from 'store';
+
+export interface CustomAppProps extends Omit<AppProps, 'Component'> {
+  Component: AppProps['Component'] & { allowedRoles?: RolesEnum[]; allowedModule?: ModulesEnum }
+}
 
 const App = (props: CustomAppProps) => {
   return (
@@ -39,7 +39,7 @@ const App = (props: CustomAppProps) => {
       <QueryClientProvider client={queryClient}>
         <Provider store={store}>
           <GlobalStyle />
-          <AuthWrapper {...props} />
+          <ComponentWrapper {...props} />
         </Provider>
       </QueryClientProvider>
     </>

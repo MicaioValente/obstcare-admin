@@ -4,8 +4,15 @@ import * as React from 'react';
 // Styles
 import * as S from './Button.styles';
 
-const Button = () => {
-  return <S.Component />;
-}
+// Models
+import { IButtonProps } from './models';
+
+const Button = ({ label, onClick }: IButtonProps) => {
+  return (
+    <S.Component onClick={onClick}>
+      <S.Text>{label}</S.Text>
+    </S.Component>
+  );
+};
 
 export default Button;
