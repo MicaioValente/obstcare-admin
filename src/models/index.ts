@@ -16,6 +16,13 @@ export enum RolesEnum {
     ADMIN = 1,
 }
 
+export type cardsProps = {
+    name: string;
+    data: string;
+    value: number;
+    income: number;
+};
+
 export interface LineChartProps {
     data: number[];
     labels: string[];

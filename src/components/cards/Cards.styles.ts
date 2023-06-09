@@ -1,60 +1,71 @@
 import styled, { css } from 'styled-components';
 
-export const Component = styled.div<{ income: boolean }>`
+export const Component = styled.div`
+  width: 210px;
+  height: 200px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  width: 210px;
-  height: 200px;
   border-radius: 16px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   padding: 1.5rem;
   font-weight: 500;
 
-  .name {
-    margin-bottom: 4px;
-    font-size: 18px;
-    @media (max-width: 960px) {
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
+  @media (max-width: 960px) {
+    padding: 1rem;
+    white-space: nowrap;
+    overflow: hidden;
   }
+`;
 
-  .data {
+export const Title = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  p {
     color: #8b909a;
   }
+`;
 
-  .value {
+export const Content = styled.div<{ income: boolean }>`
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  h2 {
     font-size: 32px;
   }
 
-  .income {
-    display: flex;
+  .first-child {
+    color: #1eb564;
+  }
+
+  p:last-child {
     color: #8b909a;
+  }
 
-    p {
-      color: #1eb564;
-      content: '';
-    }
+  svg {
+    width: 14px;
+    height: 14px;
+    fill: #1eb564;
+  }
 
-    p::before {
-      font-size: 16px;
-      content: '↑' !important;
-    }
+  .flex {
+    display: flex;
+    align-items: center;
+    gap: 6px;
   }
 
   ${({ income }) =>
     income &&
     css`
-      .income {
-        p {
-          color: #fd0d44;
+      .flex {
+        svg {
+          fill: #ee4646 !important;
+          transform: rotate(-180deg);
         }
-
-        p::before {
-          font-size: 16px;
-          content: '↓' !important;
+        .first-child {
+          color: #ee4646;
         }
       }
     `}

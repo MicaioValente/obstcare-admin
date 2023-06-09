@@ -4,12 +4,11 @@ import { useEffect, useState } from 'react';
 // Styles
 import * as S from './Cards.styles';
 
-type cardsProps = {
-  name: string;
-  data: string;
-  value: number;
-  income: number;
-};
+// Models
+import { cardsProps } from 'models';
+
+// Components
+import { Broadcast } from 'components/broadcast';
 
 const Cards = ({ name, data, value, income }: cardsProps) => {
   const [incomeValue, setIncomeValue] = useState(false);
@@ -19,15 +18,22 @@ const Cards = ({ name, data, value, income }: cardsProps) => {
   }, [income]);
 
   return (
-    <S.Component income={incomeValue}>
-      <div>
-        <h2 className="name">{name}</h2>
-        <div className="data">Last {data} days</div>
-      </div>
-      <h2 className="value">{value}</h2>
-      <div className="income">
-        <p>{income}% </p>&nbsp; vs last 7 days
-      </div>
+    <S.Component>
+      <S.Title className="hero_card">
+        <Broadcast name={name} />
+        <p>Last {data} days</p>
+      </S.Title>
+
+      <S.Content income={incomeValue}>
+        <h2>{value}</h2>
+        <div className="flex">
+          <svg viewBox="0 0 10 10">
+            <path d="M0.333496 4.99992L1.156 5.82242L4.41683 2.56742V9.66659H5.5835V2.56742L8.8385 5.82825L9.66683 4.99992L5.00016 0.333252L0.333496 4.99992Z" />
+          </svg>
+          <p className="first-child">{income}%</p>
+          <p>vs last {data} days</p>
+        </div>
+      </S.Content>
     </S.Component>
   );
 };

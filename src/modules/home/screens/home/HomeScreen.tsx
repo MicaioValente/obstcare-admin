@@ -19,8 +19,8 @@ const HomeScreen = () => {
   return (
     <S.Container>
       <S.Content>
-        {cardsData.map((card, index) => (
-          <Cards key={index} name={card.name} data={card.data} value={card.value} income={card.income} />
+        {cardsData.map((props, index) => (
+          <Cards key={index} name={props.name} data={props.data} value={props.value} income={props.income} />
         ))}
       </S.Content>
 
