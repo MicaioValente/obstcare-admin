@@ -36,8 +36,8 @@ export const Component = styled.div`
     }
 
     &.focused {
-      border-color: #9873ffc6;
-      box-shadow: 0px 0px 3px #9873ff;
+      border-color: #c4c4c4;
+      box-shadow: 0px 0px 3px #c4c4c4;
       transition: all 200ms;
     }
 

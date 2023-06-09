@@ -1,9 +1,12 @@
+// Services
+import { interceptor } from 'api/interceptor'
+
 import userReducer from './features/user'
 
 import { Action, AnyAction, combineReducers, configureStore, Reducer, ThunkAction } from '@reduxjs/toolkit'
 import { FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER, persistStore, persistReducer } from 'redux-persist'
 import storage from 'redux-persist/lib/storage/session'
-import { interceptor } from 'services/interceptor'
+
 
 const appReducer = combineReducers({
   user: userReducer

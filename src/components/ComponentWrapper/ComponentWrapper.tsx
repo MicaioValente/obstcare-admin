@@ -1,6 +1,7 @@
+import { selectUser } from 'context/features/user'
+import { useAppSelector } from 'context/hooks'
+
 import { CustomAppProps } from 'pages/_app'
-import { selectUser } from 'store/features/user'
-import { useAppSelector } from 'store/hooks'
 
 const ComponentWrapper = ({ Component, pageProps }: CustomAppProps) => {
   const { role, modules = [] } = useAppSelector(selectUser)

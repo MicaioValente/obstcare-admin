@@ -3,10 +3,11 @@ import type { AppProps } from 'next/app';
 import Head from 'next/head';
 
 // Redux
+import { Suspense } from 'react';
 import { Provider } from 'react-redux';
 
 // React-query
-import { QueryClientProvider } from '@tanstack/react-query';
+import { Hydrate, QueryClientProvider } from '@tanstack/react-query';
 
 // Styles
 import GlobalStyle from '../styles/globals';
@@ -14,17 +15,18 @@ import GlobalStyle from '../styles/globals';
 // Models
 import { RolesEnum, ModulesEnum } from 'models';
 
+// Context
+import { store } from 'context';
+
 // Utils
 import { queryClient } from 'utils/querryClient';
 
 // Components
 import { ComponentWrapper } from 'components/ComponentWrapper';
 
-// Context
-import { store } from 'store';
-
 export interface CustomAppProps extends Omit<AppProps, 'Component'> {
-  Component: AppProps['Component'] & { allowedRoles?: RolesEnum[]; allowedModule?: ModulesEnum }
+  Component: AppProps['Component'] & { allowedRoles?: RolesEnum[]; allowedModule?: ModulesEnum };
+  dehydratedState: unknown;
 }
 
 const App = (props: CustomAppProps) => {
@@ -37,10 +39,14 @@ const App = (props: CustomAppProps) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <QueryClientProvider client={queryClient}>
-        <Provider store={store}>
-          <GlobalStyle />
-          <ComponentWrapper {...props} />
-        </Provider>
+        <Hydrate state={props.dehydratedState}>
+          <Suspense fallback={<div>Loading translations...</div>}>
+            <Provider store={store}>
+              <GlobalStyle />
+              <ComponentWrapper {...props} />
+            </Provider>
+          </Suspense>
+        </Hydrate>
       </QueryClientProvider>
     </>
   );

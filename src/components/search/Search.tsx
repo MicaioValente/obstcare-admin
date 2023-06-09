@@ -5,13 +5,14 @@ import Image from 'next/image';
 import { useState } from 'react';
 
 // Styles
+import icon from './images/icon.svg';
+
 import * as S from './Search.styles';
 
 // Models
 import { inputProps, inputValueProps } from './models';
 
 // Images
-import icon from './images/icon.svg';
 
 const InputValue = (props: inputValueProps) => {
   const {

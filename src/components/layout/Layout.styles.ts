@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-export const Component = styled.div`
+export const Component = styled.div<{ isCollapsed: boolean }>`
   .ant-layout-sider-children {
     margin: 1rem;
   }
@@ -41,6 +41,35 @@ export const Component = styled.div`
   span.ant-layout-sider-zero-width-trigger.ant-layout-sider-zero-width-trigger-left {
     top: 90px !important;
   }
+
+  .signOut {
+    height: 40px;
+    margin-inline: 4px;
+    margin-block: 4px;
+    padding-left: 24px;
+    display: flex;
+    align-items: center;
+
+    span {
+      margin-inline-start: 8px;
+      width: 100px;
+      overflow: hidden;
+      height: 18px;
+      color: #343434;
+    }
+  }
+
+  ${({ isCollapsed }) =>
+    isCollapsed &&
+    css`
+      .signOut {
+        padding-left: 22px;
+
+        span {
+          display: none;
+        }
+      }
+    `}
 `;
 
 export const Avatar = styled.div<{ isCollapsed: boolean }>`

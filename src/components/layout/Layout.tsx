@@ -1,5 +1,6 @@
 // Next
 import Image from 'next/image';
+import Link from 'next/link';
 import { useRouter } from 'next/router';
 
 // React
@@ -7,13 +8,19 @@ import { useState } from 'react';
 import { BsHouse } from 'react-icons/bs';
 import { FiUsers } from 'react-icons/fi';
 
+// Images
+import SignOut from 'assets/icons/SignOut.svg';
+import avatar from 'assets/images/avatar.png';
+
 // Styles
 import * as S from './Layout.styles';
 
 // Models
 import { LayoutProps } from 'models';
 
-import avatar from "../../../public/images/avatar.png"
+// Context
+import { logout } from 'context/features/user';
+import { useAppDispatch } from 'context/hooks';
 
 // Antd
 import { Layout as LayoutContainer, Menu } from 'antd';
@@ -24,14 +31,20 @@ const Layout = ({ selectedKey, children }: LayoutProps) => {
   const [collapsed, setCollapsed] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
+  const dispatch = useAppDispatch();
   const router = useRouter();
 
   const onCollapse = (collapse: boolean) => {
     setCollapsed(collapse);
   };
 
+  const handleLogout = () => {
+    dispatch(logout());
+    router.push('/');
+  };
+
   return (
-    <S.Component >
+    <S.Component isCollapsed={collapsed}>
       <LayoutContainer style={{ minHeight: '100vh' }}>
         <Sider
           collapsible
@@ -42,14 +55,11 @@ const Layout = ({ selectedKey, children }: LayoutProps) => {
           onBreakpoint={mobile => setIsMobile(mobile)}
           style={{ background: '#F1F1F1' }}
         >
-          <S.Avatar isCollapsed={collapsed}>
-            <Image src={avatar}
-              width="39"
-              height="39"
-              alt="photo" />
-            <p>Obstcare</p>
-          </S.Avatar>
           <Menu style={{ background: '#F1F1F1' }} defaultSelectedKeys={[selectedKey]} mode="inline">
+            <S.Avatar isCollapsed={collapsed}>
+              <Image src={avatar} width="39" height="39" alt="photo" />
+              <p>Obstcare</p>
+            </S.Avatar>
             <Menu.Item
               key="1"
               icon={<BsHouse />}
@@ -78,6 +88,10 @@ const Layout = ({ selectedKey, children }: LayoutProps) => {
               </Menu.Item>
             </Menu.SubMenu>
           </Menu>
+          <Link href={'/'} className="signOut" onClick={handleLogout}>
+            <Image src={SignOut} alt="icon" />
+            <span>Sign out</span>
+          </Link>
         </Sider>
         <LayoutContainer className="site-layout">
           <Content style={{ margin: '3rem 1rem' }}>{children}</Content>

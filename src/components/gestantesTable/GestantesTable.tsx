@@ -5,7 +5,6 @@ import Image from 'next/image';
 import { ChangeEvent, useState } from 'react';
 
 // Styles
-import * as S from './GestantesTable.styles';
 
 // Images
 import frame from './images/Frame.svg';
@@ -13,6 +12,8 @@ import icon from './images/image1.png';
 import icon2 from './images/image2.png';
 import icon3 from './images/image3.png';
 import icon4 from './images/image4.png';
+
+import * as S from './GestantesTable.styles';
 
 const GestantesTable = () => {
   const [data, setData] = useState([
