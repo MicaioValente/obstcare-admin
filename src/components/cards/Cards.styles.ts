@@ -45,8 +45,6 @@ export const Content = styled.div<{ income: boolean }>`
   }
 
   svg {
-    width: 14px;
-    height: 14px;
     fill: #1eb564;
   }
 
