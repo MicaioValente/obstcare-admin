@@ -10,7 +10,7 @@ export const Container = styled.div`
 `;
 
 export const Header = styled.div`
-  width: 63%;
+  width: 90%;
   height: 100px;
   display: flex;
   flex-direction: row;

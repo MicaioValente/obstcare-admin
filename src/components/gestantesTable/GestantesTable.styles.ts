@@ -4,7 +4,6 @@ export const Component = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  max-width: 1200px;
   color: #7d7d7d;
 
   thead tr {
