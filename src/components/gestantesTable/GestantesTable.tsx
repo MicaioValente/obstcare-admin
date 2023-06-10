@@ -4,8 +4,6 @@ import Image from 'next/image';
 // React
 import { ChangeEvent, useState } from 'react';
 
-// Styles
-
 // Images
 import frame from './images/Frame.svg';
 import icon from './images/image1.png';
@@ -13,6 +11,7 @@ import icon2 from './images/image2.png';
 import icon3 from './images/image3.png';
 import icon4 from './images/image4.png';
 
+// Styles
 import * as S from './GestantesTable.styles';
 
 const GestantesTable = () => {
@@ -147,8 +146,10 @@ const GestantesTable = () => {
                 />
               </td>
               <td>
-                <Image src={item.image} alt="image" />
-                {item.user}
+                <div>
+                  <Image src={item.image} alt="image" />
+                  {item.user}
+                </div>
               </td>
               <td>{item.ddp}</td>
               <td>{item.phone}</td>

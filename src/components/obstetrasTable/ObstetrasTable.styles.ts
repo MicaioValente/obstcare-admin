@@ -22,18 +22,19 @@ export const Component = styled.div`
 
   tbody tr td:first-child {
     input {
-      margin-bottom: 1rem;
       margin-right: 1rem;
     }
   }
 
   tbody tr td:nth-child(2) {
-    display: flex;
-    align-items: center;
-    gap: 12px;
+    div {
+      display: flex;
+      align-items: center;
+      gap: 12px;
 
-    color: #323c47;
-    font-weight: 500;
-    font-size: 15px;
+      color: #323c47;
+      font-weight: 500;
+      font-size: 15px;
+    }
   }
 `;

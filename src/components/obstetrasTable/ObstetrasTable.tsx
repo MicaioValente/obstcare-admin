@@ -141,8 +141,10 @@ const ObstetrasTable = () => {
                 />
               </td>
               <td>
-                <Image src={item.image} alt="image" />
-                {item.user}
+                <div>
+                  <Image src={item.image} alt="image" />
+                  {item.user}
+                </div>
               </td>
               <td>{item.pregnant_women}</td>
               <td>{item.phone}</td>
@@ -150,7 +152,7 @@ const ObstetrasTable = () => {
               <td>{item.created_at}</td>
               <td>{item.activity}</td>
               <td>
-                <button >
+                <button>
                   <Image src={frame} alt="image" />
                 </button>
               </td>

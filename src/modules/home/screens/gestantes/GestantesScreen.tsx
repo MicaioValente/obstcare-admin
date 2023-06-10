@@ -8,16 +8,11 @@ import { GestantesTable } from 'components/gestantesTable';
 import { Search } from 'components/search';
 
 const GestantesScreen = () => {
-
   return (
     <S.Container>
       <S.Header>
         <div className="filters">
-          <Search
-            id="password"
-            title="Search"
-          />
-
+          <Search title="Search" />
           <Filter />
         </div>
         <div className="actions">
