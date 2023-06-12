@@ -6,6 +6,9 @@ import { useState } from 'react';
 import { Line } from 'react-chartjs-2';
 import 'chart.js';
 
+// Images
+import DotsVertical from '../../assets/icons/dots-vertical.svg';
+
 // Styles
 import * as S from './Charts.styles';
 
@@ -15,21 +18,17 @@ import { LineChartProps } from 'models';
 // Components
 import { Broadcast } from 'components/broadcast';
 
-// Images
-import DotsVertical from '../../assets/icons/dots-vertical.svg';
-
 import { Chart, CategoryScale, LinearScale, Title, Tooltip, Legend, PointElement, LineElement } from 'chart.js';
 Chart.register(CategoryScale, LinearScale, Title, Tooltip, Legend, PointElement, LineElement);
 
 const RatiosChart = ({ data, labels }: LineChartProps) => {
     const menu = [{ name: 'Gest/Obst' }, { name: 'Monit/Gest' }, { name: 'Lemb/Gest' }, { name: 'Alto risco/total' }];
 
-    const [selectedItem, setSelectedItem] = useState(null);
+    const [selectedItem, setSelectedItem] = useState<number | null>(0);
 
-    const handleItemClick = (index) => {
+    const handleItemClick = (index: number) => {
         setSelectedItem(index);
     };
-
 
     const chartData = {
         labels,
