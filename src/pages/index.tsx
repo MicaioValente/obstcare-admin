@@ -1,11 +1,15 @@
-// Next
-import { NextPage } from 'next';
-
 // Modules
-import { LoginScreen } from 'modules/auth/screens/login';
+import { HomeScreen } from 'modules/home/screens/home';
 
-const Home: NextPage = () => {
-  return <LoginScreen />;
+// Components
+import { Layout } from 'components/layout';
+
+const HomePage = () => {
+  return (
+    <Layout selectedKey="1">
+      <HomeScreen />
+    </Layout>
+  );
 };
 
-export default Home;
+export default HomePage;
