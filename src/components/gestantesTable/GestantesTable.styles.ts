@@ -6,6 +6,10 @@ export const Component = styled.div`
   width: 100%;
   color: #7d7d7d;
 
+  table {
+    border-collapse: collapse;
+  }
+
   thead tr {
     height: 75px;
     text-align: justify;
@@ -26,6 +30,11 @@ export const Component = styled.div`
     }
   }
 
+  tbody tr td img {
+    width: 43px;
+    height: auto;
+  }
+
   tbody tr td:nth-child(2) {
     div {
       display: flex;
@@ -36,5 +45,9 @@ export const Component = styled.div`
       font-weight: 500;
       font-size: 15px;
     }
+  }
+
+  input[type='checkbox'] {
+    width: auto;
   }
 `;

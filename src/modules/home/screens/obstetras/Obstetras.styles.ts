@@ -7,6 +7,16 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   gap: 2rem;
+
+  .actions_modal {
+    width: 415px;
+    height: 40px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 17px;
+  }
 `;
 
 export const Header = styled.div`
@@ -38,5 +48,3 @@ export const Header = styled.div`
     width: 100%;
   }
 `;
-
-export const Content = styled.div``;
